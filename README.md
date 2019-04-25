@@ -1,3 +1,12 @@
+To build (for beagle using softmmu) use:
+
+```
+./configure --disable-werror --target-list=arm-softmmu
+make
+```
+
+The base source needs `--disable-werror` for this target...
+
 Status changes in pipe are read and written in this format:
 
 ```
