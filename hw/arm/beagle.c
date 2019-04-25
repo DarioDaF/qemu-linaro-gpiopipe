@@ -30,6 +30,7 @@
 #include "hw/sysbus.h"
 #include "sysemu/blockdev.h"
 #include "exec/address-spaces.h"
+#include "hw/arm/omap_gpio_gui.h"
 
 #define BEAGLE_NAND_CS       0
 #define BEAGLE_SMC_CS        1
@@ -94,6 +95,7 @@ static void beagle_common_init(MachineState *machine,
     s->ddc = i2c_create_slave(omap_i2c_bus(s->cpu->i2c[2]), "i2c-ddc", 0x50);
 
     omap_lcd_panel_attach(s->cpu->dss);
+    omap_gpio_gui_attach(s->cpu->gpio);
 }
 
 static void beagle_xm_init(MachineState *machine)
